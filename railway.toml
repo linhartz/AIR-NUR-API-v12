@@ -1,11 +1,11 @@
 [build]
-builder = "NIXPACKS"
+builder = "DOCKERFILE"
 
 [deploy]
-startCommand = "uvicorn app.main:app --host 0.0.0.0 --port $PORT"
 restartPolicyType = "ON_FAILURE"
-healthcheckPath = "/health/ready"
+healthcheckPath = "/"
 healthcheckTimeout = 100
 
 [variables]
 PYTHONUNBUFFERED = "1"
+
