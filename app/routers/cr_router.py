@@ -1,10 +1,8 @@
 from fastapi import APIRouter
-from app.domain.cr.model import CRInputModel
-from app.domain.cr.service import compute_cr
+from app.domain.cr import service
 
 router = APIRouter(prefix="/cr", tags=["cr"])
 
-@router.post("/compute", summary="Compute Chaotic Risk")
-def compute(payload: CRInputModel):
-    val = compute_cr(payload)
-    return {"chaotic_risk": val}
+@router.get("/")
+def get_cr_data():
+    return {"message": "CR data endpoint"}
